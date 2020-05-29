@@ -10,7 +10,7 @@ function Oscillator(){
     ];
 
     this.mass = { value: 1, min: 0.1, max: 10, step: 0.1 };
-    this.springConstant = { value: 10, min: 0, max: 20, step: 0.1 };
+    this.springConstant = { value: 10, min: 0.1, max: 20, step: 0.1 };
     this.dampingConstant = { value: 0, min: 0, max: 10, step: 0.1 };
     this.auxSpringConstant = { value: 0, min: 0, max: 20, step: 0.1 };
   
@@ -23,7 +23,7 @@ function Oscillator(){
     this.omega_Natural = null, this.zeta = null;
     this.sampling_frequency = null, this.h = null;
 
-    this.timeSpan = 10;
+    this.timeSpan = 50;
   
     this.t_list = [], this.u_list = [], this.v_list = [];
     this.system_States = [], this.system_Transitions = [];
