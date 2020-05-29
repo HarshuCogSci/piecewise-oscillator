@@ -1,20 +1,20 @@
-function createGraph_plotly(oscillator){
-    var data = {
-      x: oscillator.system_States.map(d => { return d[x_axis] }),
-      y: oscillator.system_States.map(d => { return d[y_axis] }),
-      type: 'lines',
-    }
+// function createGraph_plotly(oscillator){
+//     var data = {
+//       x: oscillator.system_States.map(d => { return d[x_axis] }),
+//       y: oscillator.system_States.map(d => { return d[y_axis] }),
+//       type: 'lines',
+//     }
   
-    var layout = {
-      title:'Oscillations (ζ = ' +oscillator.zeta.toFixed(2)+ ', ω<span style="dominant-baseline: mathematical;">n</span> = ' +oscillator.omega_Natural.toFixed(2)+ ')',
-      xaxis: { title: x_axis_label + ' →' },
-      yaxis: { title: y_axis_label + ' →' },
-    };
+//     var layout = {
+//       title:'Oscillations (ζ = ' +oscillator.zeta.toFixed(2)+ ', ω<span style="dominant-baseline: mathematical;">n</span> = ' +oscillator.omega_Natural.toFixed(2)+ ')',
+//       xaxis: { title: x_axis_label + ' →' },
+//       yaxis: { title: y_axis_label + ' →' },
+//     };
   
-    Plotly.newPlot('chart', [data], layout);
-    var symbol = $('#chart .modebar-group');
-    $(symbol[ symbol.length-1 ]).css({ "visibility": "hidden" });
-}
+//     Plotly.newPlot('chart', [data], layout);
+//     var symbol = $('#chart .modebar-group');
+//     $(symbol[ symbol.length-1 ]).css({ "visibility": "hidden" });
+// }
 
 /*************************************************************************/
 
@@ -98,7 +98,8 @@ Graph.prototype.update = function(){
 /*************************************************************************/
 
 Graph.prototype.simulate = function(){
-    this.point.attrs({ cx: this.point_array[currentIndex][0], cy: this.point_array[currentIndex][1] });
+  if(simulationRunning){ this.stroke.attrs({ d: this.lineGen(this.point_array.slice(0,currentIndex+1)) }); }  
+  this.point.attrs({ cx: this.point_array[currentIndex][0], cy: this.point_array[currentIndex][1] });
 }
 
 /*************************************************************************/
