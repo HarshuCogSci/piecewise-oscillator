@@ -126,20 +126,29 @@ Schematic.prototype.update = function(){
   
     this.initialPosition_vector.attrs({ x1: this.distance_scale(0), x2: this.distance_scale(this.oscillator.initialPosition.value), y1: 20, y2: 20 });
     this.initialPosition_marker.attrs({ x: this.distance_scale(this.oscillator.initialPosition.value)+15, y: 17 });
-    if(this.oscillator.initialPosition.value == 0){ this.initialPosition_vector.styles({ 'display': 'none' }); this.initialPosition_marker.styles({ 'display': 'none' }); }
-    else { this.initialPosition_vector.styles({ 'display': null }); this.initialPosition_marker.styles({ 'display': null }); }
+    if(this.oscillator.initialPosition.value == 0){
+      this.initialPosition_vector.styles({ 'display': 'none' }); this.initialPosition_marker.styles({ 'display': 'none' }); 
+    } else { 
+      this.initialPosition_vector.styles({ 'display': null }); this.initialPosition_marker.styles({ 'display': null }); 
+    }
   
     var temp_x = this.distance_scale(this.oscillator.initialPosition.value) + 0.5*this.block_width, temp_y = 0 - 0.5*this.block_width;
     this.initialVelocity_vector.attrs({ x1: temp_x, x2: temp_x + 10*this.oscillator.initialVelocity.value, y1: temp_y, y2: temp_y });
     this.initialVelocity_marker.attrs({ x: temp_x + 10*this.oscillator.initialVelocity.value + 10, y: temp_y });
-    if(this.oscillator.initialVelocity.value == 0){ this.initialVelocity_vector.styles({ 'display': 'none' }); this.initialVelocity_marker.styles({ 'display': 'none' }); }
-    else { this.initialVelocity_vector.styles({ 'display': null }); this.initialVelocity_marker.styles({ 'display': null }); }
+    if(this.oscillator.initialVelocity.value == 0){
+      this.initialVelocity_vector.styles({ 'display': 'none' }); this.initialVelocity_marker.styles({ 'display': 'none' }); 
+    } else { 
+      this.initialVelocity_vector.styles({ 'display': null }); this.initialVelocity_marker.styles({ 'display': null }); 
+    }
   
     var temp_x = this.distance_scale(this.oscillator.initialPosition.value), temp_y = -1*this.block_width - 10;
     this.excitingForce_vector.attrs({ x1: temp_x, x2: temp_x + 10*this.oscillator.excitingMagnitude.value, y1: temp_y, y2: temp_y });
     this.excitingForce_marker.attrs({ x: temp_x + 10*this.oscillator.excitingMagnitude.value + 10, y: temp_y });
-    if(this.oscillator.excitingMagnitude.value == 0){ this.excitingForce_vector.styles({ 'display': 'none' }); this.excitingForce_marker.styles({ 'display': 'none' }); }
-    else { this.excitingForce_vector.styles({ 'display': null }); this.excitingForce_marker.styles({ 'display': null }); }
+    if(this.oscillator.excitingMagnitude.value == 0 || this.oscillator.excitingFrequency.value == 0){ 
+      this.excitingForce_vector.styles({ 'display': 'none' }); this.excitingForce_marker.styles({ 'display': 'none' }); 
+    } else { 
+      this.excitingForce_vector.styles({ 'display': null }); this.excitingForce_marker.styles({ 'display': null }); 
+    }
   
     this.simulate();
 }
