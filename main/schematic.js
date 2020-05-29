@@ -156,7 +156,9 @@ Schematic.prototype.update = function(){
 /*********************************************************/
   
 Schematic.prototype.simulate = function(){
-    posX = this.distance_scale(this.oscillator.system_States[currentIndex].disp);
+    let currentState = this.oscillator.system_States[currentIndex];
+
+    posX = this.distance_scale(currentState.disp);
     block_width = this.block_width;
     this.block.attrs({ x: posX - 0.5*block_width, y: -block_width });
   
@@ -193,10 +195,10 @@ Schematic.prototype.simulate = function(){
   
     this.damper_path.attrs({ d: path });
   
-    var temp_x = this.distance_scale(this.oscillator.system_States[currentIndex].disp);
+    var temp_x = this.distance_scale(currentState.disp);
     this.zeroMark.attrs({ x1: temp_x, y1: 0.05*this.height*innerHeight, x2: temp_x, y2: 0 });
   
-    aux_posX = this.oscillator.system_States[currentIndex].disp > 0 ? posX + 0.5*block_width : this.distance_scale(0) + 0.5*block_width;
+    aux_posX = currentState.disp > 0 ? posX + 0.5*block_width : this.distance_scale(0) + 0.5*block_width;
     this.aux_spring_g.attrs({ "transform": "translate(" +(aux_posX)+ ", " +(-0.5*this.block_width)+ ")" });
     spring_length = 0.9*this.width*innerWidth - aux_posX;
     path = []; numberOfTurns = 20; unit_length = 0.8*spring_length/numberOfTurns;
@@ -214,7 +216,11 @@ Schematic.prototype.simulate = function(){
     temp_x += 0.1*spring_length;
     path.push({ x: temp_x, y: 0 })
     this.aux_spring_path.attrs({ d: this.lineGenerator(path) });
-  
+
+    if(simulationRunning){
+      var temp_x = this.distance_scale(currentState.disp), temp_y = -1*this.block_width - 10;
+      this.excitingForce_vector.attrs({ x1: temp_x, x2: temp_x + 10*currentState.appliedForce });
+    }
 }
   
 /*********************************************************/
@@ -224,7 +230,7 @@ Schematic.prototype.simulate_start = function(){
     this.initialPosition_marker.styles({ 'display': 'none' });
     this.initialVelocity_vector.styles({ 'display': 'none' });
     this.initialVelocity_marker.styles({ 'display': 'none' });
-    this.excitingForce_vector.styles({ 'display': 'none' });
+    // this.excitingForce_vector.styles({ 'display': 'none' });
     this.excitingForce_marker.styles({ 'display': 'none' });
 }
 
