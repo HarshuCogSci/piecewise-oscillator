@@ -86,6 +86,12 @@ function change_xAxis(param, label){
     graph.update();
 }
 
+function change_timeSpan(span){
+    $('body').trigger({ type: "resetTimer" });
+    oscillator.timeSpan = span;
+    update();
+}
+
 /*********************************************************/
 // Timer functions
 

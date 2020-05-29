@@ -131,7 +131,7 @@
                 <!-- yAxis Options -->
       
                 <!-- xAxis Options -->
-                <div class='dropdown d-inline' id="x_axis">
+                <div class='dropdown d-inline mr-4' id="x_axis">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> x-axis </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div class='dropdown-item' onclick="change_xAxis('time', 'Time')">Time</div>
@@ -141,6 +141,19 @@
                   </div>
                 </div>
                 <!-- xAxis Options -->
+
+                <!-- Time Span -->
+                <div class='dropdown d-inline' id="timespan_dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> time span </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class='dropdown-item' onclick="change_timeSpan(10)">10 seconds</div>
+                    <div class='dropdown-item' onclick="change_timeSpan(50)">50 seconds</div>
+                    <div class='dropdown-item' onclick="change_timeSpan(100)">100 seconds</div>
+                    <div class='dropdown-item' onclick="change_timeSpan(200)">200 seconds</div>
+                    <div class='dropdown-item' onclick="change_timeSpan(500)">500 seconds</div>
+                  </div>
+                </div>
+                <!-- Time Span -->
 
               </div>
             </div>
