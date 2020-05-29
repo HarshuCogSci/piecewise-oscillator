@@ -42,7 +42,7 @@ Oscillator.prototype.compute = function(){
     this.omega_Natural = Math.sqrt(k/m);
     this.zeta = c/(2*Math.sqrt(k*m));
 
-    this.sampling_frequency = (ω > this.omega_Natural && F > 0) ? ω : this.omega_Natural;
+    this.sampling_frequency = (ω > this.omega_Natural && F > 0 && ω != 0) ? ω : this.omega_Natural;
     this.h = 0.01*(2*Math.PI/this.sampling_frequency);
     h = this.h;
     dt = h;
