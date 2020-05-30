@@ -124,13 +124,13 @@
                 <div class='dropdown d-inline mr-4' id="y_axis">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> y-axis </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div class='dropdown-item' onclick="change_yAxis('disp', 'Displacement')">Displacement</div>
-                    <div class='dropdown-item' onclick="change_yAxis('vel', 'Velocity')">Velocity</div>
-                    <div class='dropdown-item' onclick="change_yAxis('acc', 'Acceleration')">Acceleration</div>
+                    <div id='yaxis_dropdown_disp' class='yaxis_dropdown dropdown-item active' onclick="change_yAxis('disp', 'Displacement')">Displacement</div>
+                    <div id='yaxis_dropdown_vel' class='yaxis_dropdown dropdown-item' onclick="change_yAxis('vel', 'Velocity')">Velocity</div>
+                    <div id='yaxis_dropdown_acc' class='yaxis_dropdown dropdown-item' onclick="change_yAxis('acc', 'Acceleration')">Acceleration</div>
                     <div class="dropdown-divider"></div>
-                    <div class='dropdown-item' onclick="change_yAxis('kineticEnergy', 'Kinetic Energy')">Kinetic Energy</div>
-                    <div class='dropdown-item' onclick="change_yAxis('potentialEnergy', 'Potential Energy')">Potential Energy</div>
-                    <div class='dropdown-item' onclick="change_yAxis('totalEnergy', 'Total Energy')">Total Energy</div>
+                    <div id='yaxis_dropdown_kineticEnergy' class='yaxis_dropdown dropdown-item' onclick="change_yAxis('kineticEnergy', 'Kinetic Energy')">Kinetic Energy</div>
+                    <div id='yaxis_dropdown_potentialEnergy' class='yaxis_dropdown dropdown-item' onclick="change_yAxis('potentialEnergy', 'Potential Energy')">Potential Energy</div>
+                    <div id='yaxis_dropdown_totalEnergy' class='yaxis_dropdown dropdown-item' onclick="change_yAxis('totalEnergy', 'Total Energy')">Total Energy</div>
                   </div>
                 </div>
                 <!-- yAxis Options -->
@@ -139,10 +139,11 @@
                 <div class='dropdown d-inline mr-4' id="x_axis">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> x-axis </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div class='dropdown-item' onclick="change_xAxis('time', 'Time')">Time</div>
-                    <div class='dropdown-item' onclick="change_xAxis('disp', 'Displacement')">Displacement</div>
-                    <div class='dropdown-item' onclick="change_xAxis('vel', 'Velocity')">Velocity</div>
-                    <div class='dropdown-item' onclick="change_xAxis('acc', 'Acceleration')">Acceleration</div>
+                    <div id='xaxis_dropdown_time' class='xaxis_dropdown dropdown-item active' onclick="change_xAxis('time', 'Time')">Time</div>
+                    <div class="dropdown-divider"></div>
+                    <div id='xaxis_dropdown_disp' class='xaxis_dropdown dropdown-item' onclick="change_xAxis('disp', 'Displacement')">Displacement</div>
+                    <div id='xaxis_dropdown_vel' class='xaxis_dropdown dropdown-item' onclick="change_xAxis('vel', 'Velocity')">Velocity</div>
+                    <div id='xaxis_dropdown_acc' class='xaxis_dropdown dropdown-item' onclick="change_xAxis('acc', 'Acceleration')">Acceleration</div>
                   </div>
                 </div>
                 <!-- xAxis Options -->
@@ -151,15 +152,19 @@
                 <div class='dropdown d-inline' id="timespan_dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> time span </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div class='dropdown-item' onclick="change_timeSpan(10)">10 seconds</div>
-                    <div class='dropdown-item' onclick="change_timeSpan(20)">20 seconds</div>
-                    <div class='dropdown-item' onclick="change_timeSpan(50)">50 seconds</div>
-                    <div class='dropdown-item' onclick="change_timeSpan(100)">100 seconds</div>
-                    <div class='dropdown-item' onclick="change_timeSpan(200)">200 seconds</div>
-                    <div class='dropdown-item' onclick="change_timeSpan(500)">500 seconds</div>
+                    <div id='time_dropdown_10' class='time_dropdown dropdown-item' onclick="change_timeSpan(10)">10 seconds</div>
+                    <div id='time_dropdown_20' class='time_dropdown dropdown-item' onclick="change_timeSpan(20)">20 seconds</div>
+                    <div id='time_dropdown_50' class='time_dropdown dropdown-item active' onclick="change_timeSpan(50)">50 seconds</div>
+                    <div id='time_dropdown_100' class='time_dropdown dropdown-item' onclick="change_timeSpan(100)">100 seconds</div>
+                    <div id='time_dropdown_200' class='time_dropdown dropdown-item' onclick="change_timeSpan(200)">200 seconds</div>
+                    <div id='time_dropdown_500' class='time_dropdown dropdown-item' onclick="change_timeSpan(500)">500 seconds</div>
                   </div>
                 </div>
                 <!-- Time Span -->
+
+                <div class="progress mt-3 height:0.75em">
+                  <div id='progress-bar' class="progress-bar progress-bar-striped" style="width:0%; height:0.75em;"></div>
+                </div>
 
               </div>
             </div>

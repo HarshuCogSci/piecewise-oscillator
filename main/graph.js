@@ -100,6 +100,8 @@ Graph.prototype.update = function(){
 Graph.prototype.simulate = function(){
   if(simulationRunning){ this.stroke.attrs({ d: this.lineGen(this.point_array.slice(0,currentIndex+1)) }); }  
   this.point.attrs({ cx: this.point_array[currentIndex][0], cy: this.point_array[currentIndex][1] });
+  let temp = parseInt(10*100*currentIndex/this.oscillator.system_States.length)/10;
+  d3.select('#progress-bar').styles({ width: temp+"%" });
 }
 
 /*************************************************************************/

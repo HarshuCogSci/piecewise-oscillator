@@ -79,18 +79,24 @@ function createEventListeners(){
 function change_yAxis(param, label){
     graph.yaxis_param = param;
     graph.yaxis_label = label;
+    d3.selectAll('.yaxis_dropdown').classed('active', false);
+    d3.select('#yaxis_dropdown_'+param).classed('active', true);
     graph.update();
 }
 
 function change_xAxis(param, label){
     graph.xaxis_param = param;
     graph.xaxis_label = label;
+    d3.selectAll('.xaxis_dropdown').classed('active', false);
+    d3.select('#xaxis_dropdown_'+param).classed('active', true);
     graph.update();
 }
 
 function change_timeSpan(span){
     $('body').trigger({ type: "resetTimer" });
     oscillator.timeSpan = span;
+    d3.selectAll('.time_dropdown').classed('active', false);
+    d3.select('#time_dropdown_'+span).classed('active', true);
     update();
 }
 
