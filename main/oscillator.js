@@ -96,7 +96,8 @@ Oscillator.prototype.computeSystemStates = function(){
     this.system_States.map(d => {
         d.acc = this.f_v(d.time, d.disp, d.vel);
         d.kineticEnergy = 0.5*m*d.vel*d.vel;
-        d.potentialEnergy = 0.5*k*d.disp*d.disp;
+        let temp_disp = d.disp > 0 ? d.disp : 0;
+        d.potentialEnergy = 0.5*k*d.disp*d.disp + 0.5*k_aux*temp_disp*temp_disp;
         d.totalEnergy = d.kineticEnergy + d.potentialEnergy;
         d.appliedForce = F*Math.sin(ω*d.time);
     });

@@ -127,6 +127,10 @@
                     <div class='dropdown-item' onclick="change_yAxis('disp', 'Displacement')">Displacement</div>
                     <div class='dropdown-item' onclick="change_yAxis('vel', 'Velocity')">Velocity</div>
                     <div class='dropdown-item' onclick="change_yAxis('acc', 'Acceleration')">Acceleration</div>
+                    <div class="dropdown-divider"></div>
+                    <div class='dropdown-item' onclick="change_yAxis('kineticEnergy', 'Kinetic Energy')">Kinetic Energy</div>
+                    <div class='dropdown-item' onclick="change_yAxis('potentialEnergy', 'Potential Energy')">Potential Energy</div>
+                    <div class='dropdown-item' onclick="change_yAxis('totalEnergy', 'Total Energy')">Total Energy</div>
                   </div>
                 </div>
                 <!-- yAxis Options -->
@@ -148,6 +152,7 @@
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> time span </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div class='dropdown-item' onclick="change_timeSpan(10)">10 seconds</div>
+                    <div class='dropdown-item' onclick="change_timeSpan(20)">20 seconds</div>
                     <div class='dropdown-item' onclick="change_timeSpan(50)">50 seconds</div>
                     <div class='dropdown-item' onclick="change_timeSpan(100)">100 seconds</div>
                     <div class='dropdown-item' onclick="change_timeSpan(200)">200 seconds</div>
