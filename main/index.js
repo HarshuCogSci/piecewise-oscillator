@@ -1,7 +1,7 @@
 /*********************************************************/
 // Variables
 
-var oscillator, schematic, graph;
+var oscillator, schematic, graph, equation;
 var currentIndex = 0, previousCurrentIndex = null;
 var simulationRunning = false;
 var startTime = 0, runningTime = 0, pauseTime = 0;
@@ -19,6 +19,7 @@ function setup(){
 
     schematic = new Schematic(oscillator);
     graph = new Graph(oscillator);
+    equation = new Equation(oscillator);
 
     $('#play_btn').on('click', function(){
         if(simulationRunning == false){ $("body").trigger({ type: "startTimer" }); }
@@ -34,6 +35,7 @@ function update(){
     oscillator.compute();
     schematic.update();
     graph.update();
+    equation.update();
 }
 
 /*********************************************************/
