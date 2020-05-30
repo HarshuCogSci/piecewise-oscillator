@@ -40,7 +40,7 @@ Equation.prototype.updateEquation = function(){
     temp += "kx";
     if(this.visibility.auxSpringForce){ temp += "+k'\\Delta x"; }
     temp += "=";
-    if(this.visibility.appliedForce){ temp += "0"; }
+    if(!this.visibility.appliedForce){ temp += "0"; }
     else { temp += "F_0\sin(\\omega t)"; }
     temp += " $$";
     d3.select('#equation_panel').html(temp);
