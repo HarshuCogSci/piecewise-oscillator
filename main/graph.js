@@ -77,7 +77,7 @@ Graph.prototype.update = function(){
     }
   
     temp_y = math.max(math.abs( y_array ));
-    this.yScale.domain([-temp_y, temp_y]).range([-0.45*this.height, 0.45*this.height]);
+    this.yScale.domain([-temp_y, temp_y]).range([0.45*this.height, -0.45*this.height]);
   
     this.point_array = [];
     this.point_array = x_array.map((d, i) => { return [ this.xScale(x_array[i]), this.yScale(y_array[i]) ] });
